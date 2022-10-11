@@ -1,0 +1,72 @@
+Started by user Anastasiia
+Obtained Jenkinsfile from git https://github.com/AnastasiiaMuk/Dropbox_project
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\Dropbox API Test
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\Dropbox API Test\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/AnastasiiaMuk/Dropbox_project # timeout=10
+Fetching upstream changes from https://github.com/AnastasiiaMuk/Dropbox_project
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.37.1.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/AnastasiiaMuk/Dropbox_project +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 3b0af23370f6ab9e4016bbdb56427464971b3eb8 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 3b0af23370f6ab9e4016bbdb56427464971b3eb8 # timeout=10
+Commit message: "Add Jenkinsfile"
+ > git.exe rev-list --no-walk 3b0af23370f6ab9e4016bbdb56427464971b3eb8 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\Dropbox API Test>npm update 
+
+up to date, audited 95 packages in 3s
+
+21 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\Dropbox API Test>npm run test 
+
+> test
+> mocha
+
+
+
+  Dropbox API
+    âœ” Test get token (795ms)
+    âœ” Upload File (1079ms)
+    âœ” Get file metadata after upload file (446ms)
+    âœ” Delete file (1475ms)
+    âœ” Get file metadata after delete file (370ms)
+
+
+  5 passing (4s)
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

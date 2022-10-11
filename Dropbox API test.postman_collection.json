@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "06632728-1630-49cf-be8e-4d9a0a0aa062",
+		"name": "Dropbox API test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Refresh token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "27gyfoo1dx9hvy1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "8eow345moxpsvbg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "K16K67fhioMAAAAAAAAAAS8C3fxo-SIX5C6PQXa_Xw91445lkKeOVKGoIWic7YCA",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.dropbox.com/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"api",
+						"dropbox",
+						"com"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer sl.BQ4dROr9H7ZAbjCGkjBOrvjYASx8JRlTvYeEFSiqEKdMPO4y-8YKyxU9Z1_oPtuCawUwyB2QVHGlvNqyA-JP3wsr70TrDyWIUX_qYhB-1hkj63SN7k5-PdiR53ENdsQeT2LqZcY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream",
+						"type": "text"
+					},
+					{
+						"key": "Dropbox-API-Arg",
+						"value": "{\"autorename\":false,\"mode\":\"add\",\"mute\":false,\"path\":\"/test.txt\",\"strict_conflict\":false}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "Hello world!"
+				},
+				"url": {
+					"raw": "https://content.dropboxapi.com/2/files/upload",
+					"protocol": "https",
+					"host": [
+						"content",
+						"dropboxapi",
+						"com"
+					],
+					"path": [
+						"2",
+						"files",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get metadata",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer sl.BQ4dROr9H7ZAbjCGkjBOrvjYASx8JRlTvYeEFSiqEKdMPO4y-8YKyxU9Z1_oPtuCawUwyB2QVHGlvNqyA-JP3wsr70TrDyWIUX_qYhB-1hkj63SN7k5-PdiR53ENdsQeT2LqZcY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"include_deleted\": true,\r\n    \"include_has_explicit_shared_members\": true,\r\n    \"include_media_info\": true,\r\n    \"path\": \"/test.txt\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.dropboxapi.com/2/files/get_metadata",
+					"protocol": "https",
+					"host": [
+						"api",
+						"dropboxapi",
+						"com"
+					],
+					"path": [
+						"2",
+						"files",
+						"get_metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer sl.BQ4dROr9H7ZAbjCGkjBOrvjYASx8JRlTvYeEFSiqEKdMPO4y-8YKyxU9Z1_oPtuCawUwyB2QVHGlvNqyA-JP3wsr70TrDyWIUX_qYhB-1hkj63SN7k5-PdiR53ENdsQeT2LqZcY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"path\": \"/test.txt\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.dropboxapi.com/2/files/delete_v2",
+					"protocol": "https",
+					"host": [
+						"api",
+						"dropboxapi",
+						"com"
+					],
+					"path": [
+						"2",
+						"files",
+						"delete_v2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
